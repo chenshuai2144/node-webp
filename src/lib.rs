@@ -1,14 +1,17 @@
 #![deny(clippy::all)]
 
-mod webp;
+use std::{fs, io::Write};
 
+mod webp;
 
 #[macro_use]
 extern crate napi_derive;
 
 #[napi]
-fn image_to_webp(path: String, quality_factor: f64) -> bool {
-  webp::image_to_webp(path).unwrap()
+fn image_to_webp(path: String, dist_path: String) -> bool {
+  let webp_file_content = webp::image_to_webp(path).unwrap();
+  let mut webp_file = fs::File::create(dist_path).unwrap();
+  webp_file.write_all(&webp_file_content.to_vec()).unwrap();
   true
 }
 
@@ -19,6 +22,6 @@ mod tests {
 
   #[test]
   fn png_to_webp() {
-    image_to_webp("C:\\rust\\node-webp\\test.png".to_string(), 100.0);
+    image_to_webp("test.png".to_string(), "test.webp".to_string());
   }
 }

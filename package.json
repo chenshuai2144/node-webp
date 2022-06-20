@@ -1,5 +1,5 @@
 {
-  "name": "node-webp",
+  "name": "node-image-webp",
   "version": "1.0.0",
   "main": "index.js",
   "types": "index.d.ts",
@@ -26,5 +26,11 @@
     "prepublishOnly": "napi prepublish -t npm",
     "test": "echo xxx",
     "version": "napi version"
+  },
+  "optionalDependencies": {
+    "node-image-webp-win32-x64-msvc": "1.0.0",
+    "node-image-webp-darwin-x64": "1.0.0",
+    "node-image-webp-linux-x64-gnu": "1.0.0",
+    "node-image-webp-darwin-arm64": "1.0.0"
   }
 }

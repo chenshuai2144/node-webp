@@ -11,6 +11,11 @@
       ]
     }
   },
+  "repository": "https://github.com/chenshuai2144/node-webp",
+  "files": [
+    "index.js",
+    "index.d.ts"
+  ],
   "license": "MIT",
   "devDependencies": {
     "@napi-rs/cli": "^2.9.0",

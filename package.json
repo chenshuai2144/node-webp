@@ -1,6 +1,6 @@
 {
   "name": "node-image-webp",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "index.js",
   "types": "index.d.ts",
   "napi": {
@@ -28,9 +28,9 @@
     "version": "napi version"
   },
   "optionalDependencies": {
-    "node-image-webp-win32-x64-msvc": "1.0.1",
-    "node-image-webp-darwin-x64": "1.0.1",
-    "node-image-webp-linux-x64-gnu": "1.0.1",
-    "node-image-webp-darwin-arm64": "1.0."
+    "node-image-webp-win32-x64-msvc": "1.0.2",
+    "node-image-webp-darwin-x64": "1.0.2",
+    "node-image-webp-linux-x64-gnu": "1.0.2",
+    "node-image-webp-darwin-arm64": "1.0.2"
   }
 }

@@ -8,6 +8,7 @@ use reqwest;
 #[macro_use]
 extern crate napi_derive;
 
+// 将本地的图片转化为 webp
 #[napi]
 fn image_to_webp(path: String, dist_path: String) -> bool {
   // Open path as DynamicImage
@@ -23,7 +24,7 @@ fn image_to_webp(path: String, dist_path: String) -> bool {
   webp_file.write_all(&webp_file_content.to_vec()).unwrap();
   true
 }
-
+// 将 url 图片下载，并且保存为 webp
 #[napi]
 fn web_image_to_webp(url: String, dist_path: String) -> bool {
   let response = reqwest::blocking::get(url.clone()).unwrap();

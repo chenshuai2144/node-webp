@@ -26,7 +26,20 @@ fn image_to_webp(path: String, dist_path: String) -> bool {
 
 #[napi]
 fn web_image_to_webp(url: String, dist_path: String) -> bool {
-  let img_bytes = reqwest::blocking::get(url).unwrap().bytes().unwrap();
+  let response = reqwest::blocking::get(url.clone()).unwrap();
+
+  let content_type = response
+    .headers()
+    .get("content-type")
+    .unwrap()
+    .to_str()
+    .unwrap();
+
+  if !content_type.starts_with("image") {
+    return false;
+  }
+
+  let img_bytes = response.bytes().unwrap();
 
   let image = image::load_from_memory(&img_bytes).unwrap();
   let webp_file_content = webp::image_to_webp(image).unwrap();

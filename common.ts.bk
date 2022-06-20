@@ -1,0 +1,83 @@
+export const ABOUT_US_DATA = {
+  bannerData: {
+    title: 'Who Are We',
+    description:
+      'We are committed to helping global consumers, and small and micro enterprises transform into a secure, green, and sustainable society. ',
+    bgImgUrl:
+      'https://gw.alipayobjects.com/mdn/rms_51f462/afts/img/A*DzDvTK7JLlQAAAAAAAAAAAAAARQnAQ',
+    btnText: 'Enquire Now',
+  },
+  cardList: [
+    {
+      title: 'Our History',
+      imgUrl:
+        'https://gw.alipayobjects.com/mdn/rms_a9745b/afts/img/A*clyRTbHdYPAAAAAAAAAAAAAAARQnAQ',
+      contentTitle:
+        'AntChain, founded in 2015, provides blockchain solutions to thousands of enterprisesdevelopers, and public sectors. ',
+      contentList: [
+        'Committed to the success of its customers, AntChain provides reliable and robust blockchain solutions. As the flagship technology brand of Ant Group, AntChain is dedicated to building the foundations of trust with innovative technologies including blockchain, the internet of things, data analytics, and intelligent risk management.',
+        'It aims to develop mutually trusted, highly efficient industry-based solutions to enable trust between enterprises and their customers in the new digital economy, support industry collaboration, and value creation.',
+      ],
+      btnText: '',
+      placement: 'left',
+    },
+    {
+      title: 'Our History',
+      imgUrl:
+        'https://gw.alipayobjects.com/mdn/rms_a9745b/afts/img/A*LCBhR4iWkZkAAAAAAAAAAAAAARQnAQ',
+      contentTitle: 'AntChain is a global leader in the blockchain space. ',
+      contentList: [
+        'Since 2015, Ant Group has been investing significantly in the research and development of blockchain technologies to strengthen transparency and build trust in industries that traditionally involve large numbers of participants and complex processes. ',
+        'Ant Group now has the largest productivity blockchain platform in China, with the ability to process and support one billion user accounts and one billion transactions every day.',
+        'Currently, over 100 million digital assets are uploaded onto AntChain on average every day. ',
+      ],
+      btnText: '',
+      placement: 'right',
+    },
+  ],
+  achievementData: {
+    title: 'Our Achievements',
+    content:
+      'We ranked first in terms of the number of published blockchain-related patent applications from 2017 to the six months ended June 30, 2020, according to IPR Daily and patent database IncoPat. We are also a leader in the commercial application of blockchain. ',
+    span: 12,
+    list: [
+      {
+        title:
+          '2019 - Global Leading Blockchain Technology Cloud Service Provider',
+        content:
+          'In April 2019, Alibaba Cloud BaaS operated by AntChain was selected as one of the world‘s 6 leading blockchain technology cloud service providers by top consulting firm Gartner.',
+        imgUrl:
+          'https://gw.alipayobjects.com/mdn/rms_a9745b/afts/img/A*esEPSLvjoegAAAAAAAAAAAAAARQnAQ',
+      },
+      {
+        title: '2020, 2019 - Forbes Global Blockchain Top 50',
+        content:
+          'AntChain has been listed in the Forbes Global Top 50 Blockchain for two consecutive years in 2020 and 2019.Its success in the international diamond procurement traceability and cross-border payment scenarios has been highly recognized.',
+        imgUrl:
+          'https://gw.alipayobjects.com/mdn/rms_a9745b/afts/img/A*esEPSLvjoegAAAAAAAAAAAAAARQnAQ',
+      },
+      {
+        title: '2019 - The 50 Smartest Companies in the World',
+        content:
+          'Selected as the "2019 World‘s 50 Smartest Companies in the World" by the authoritative US magazine "MIT Technology Review", Ant Blockchain is deeply involved in technology research and development and launched the world’s first blockchain e-wallet cross-border remittance.',
+        imgUrl:
+          'https://gw.alipayobjects.com/mdn/rms_a9745b/afts/img/A*esEPSLvjoegAAAAAAAAAAAAAARQnAQ',
+      },
+      {
+        title: '2019 - Fintech Awards "Trust Digital" Award',
+        content:
+          'AntChain "Double Chain" was awarded the IDC 2019 Financial Technology Award-"Trust Digital" Award. The goal of Double Chain Technology is to connect upstream and downstream enterprises in the supply chain and promote the rapid financing of small and micro-enterprises.',
+        imgUrl:
+          'https://gw.alipayobjects.com/mdn/rms_a9745b/afts/img/A*esEPSLvjoegAAAAAAAAAAAAAARQnAQ',
+      },
+      {
+        title:
+          '2018 - World Internet Leading Science and Technology Achievement Award',
+        content:
+          'In 2018, the "World‘s Leading Scientific and Technological Achievements" which participated by more than 40 top experts and scholars from around the world, AntChain is the only blockchain that won the award.',
+        imgUrl:
+          'https://gw.alipayobjects.com/mdn/rms_a9745b/afts/img/A*esEPSLvjoegAAAAAAAAAAAAAARQnAQ',
+      },
+    ],
+  },
+};

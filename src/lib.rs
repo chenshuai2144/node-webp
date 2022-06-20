@@ -1,6 +1,9 @@
 #![deny(clippy::all)]
-
-use std::{fs, io::Write};
+use regex::Regex;
+use std::{
+  fs::File,
+  io::{Read, Write},
+};
 mod webp;
 use image::io::Reader as ImageReader;
 use reqwest;
@@ -20,7 +23,7 @@ fn image_to_webp(path: String, dist_path: String) -> bool {
     .decode()
     .unwrap();
   let webp_file_content = webp::image_to_webp(image).unwrap();
-  let mut webp_file = fs::File::create(dist_path).unwrap();
+  let mut webp_file = File::create(dist_path).unwrap();
   webp_file.write_all(&webp_file_content.to_vec()).unwrap();
   true
 }
@@ -44,14 +47,39 @@ fn web_image_to_webp(url: String, dist_path: String) -> bool {
 
   let image = image::load_from_memory(&img_bytes).unwrap();
   let webp_file_content = webp::image_to_webp(image).unwrap();
-  let mut webp_file = fs::File::create(dist_path).unwrap();
+  let mut webp_file = File::create(dist_path).unwrap();
   webp_file.write_all(&webp_file_content.to_vec()).unwrap();
   true
 }
 
+#[napi]
+fn find_all_url(path: String) -> Vec<String> {
+  let re = Regex::new(
+    r"(http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+)'",
+  )
+  .unwrap();
+  let mut contents = String::new();
+  File::open(path)
+    .unwrap()
+    .read_to_string(&mut contents)
+    .unwrap();
+
+  let mut urls: Vec<String> = Vec::new();
+
+  for line in contents.lines() {
+    if line.contains("http") {
+      re.captures_iter(line).for_each(|cap| {
+        urls.push(cap.get(1).unwrap().as_str().to_string());
+      });
+    }
+  }
+
+  urls
+}
 #[cfg(test)]
 mod tests {
 
+  use crate::find_all_url;
   use crate::image_to_webp;
   use crate::web_image_to_webp;
 
@@ -66,5 +94,10 @@ mod tests {
         .to_string(),
       "test_web.webp".to_string(),
     );
+  }
+  #[test]
+  fn find_all_url_ts() {
+    let url_list = find_all_url("common.ts.bk".to_string());
+    assert_eq!(url_list.len(), 8);
   }
 }

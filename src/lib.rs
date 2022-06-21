@@ -58,6 +58,10 @@ fn find_all_url(path: String) -> Vec<String> {
     r"(http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+)'",
   )
   .unwrap();
+  let jsx_re = Regex::new(
+    r#"(http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+)""#,
+  )
+  .unwrap();
   let mut contents = String::new();
   File::open(path)
     .unwrap()
@@ -69,6 +73,9 @@ fn find_all_url(path: String) -> Vec<String> {
   for line in contents.lines() {
     if line.contains("http") {
       re.captures_iter(line).for_each(|cap| {
+        urls.push(cap.get(1).unwrap().as_str().to_string());
+      });
+      jsx_re.captures_iter(line).for_each(|cap| {
         urls.push(cap.get(1).unwrap().as_str().to_string());
       });
     }
@@ -99,6 +106,7 @@ mod tests {
   #[test]
   fn find_all_url_ts() {
     let url_list = find_all_url("common.ts.bk".to_string());
-    assert_eq!(url_list.len(), 8);
+    println!("{:?}", url_list);
+    assert_eq!(url_list.len(), 12);
   }
 }

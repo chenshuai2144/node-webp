@@ -81,3 +81,85 @@ export const ABOUT_US_DATA = {
     ],
   },
 };
+
+
+import ArticleListCard from '@/components/ArticleListCard';
+import Banner from '@/components/Banner';
+import ProductCard from '@/components/ProductCard';
+import TextLayout from '@/components/ProductCard/textLayout';
+import { HOME_DATA } from '@/constants/homeData';
+import React, { useRef, useState } from '@alipay/bigfish/react';
+import ReadArticle from './component/ReadArticle';
+
+const Home: React.FC = () => {
+  const { aboutUsList, productData, bannerData } = HOME_DATA || {};
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isVideoBtnVisible, setIsVideoBtnVisible] = useState<boolean>(true);
+
+  /**
+   * @description: 播放视频
+   */
+  const handlePlayVideo = () => {
+    setIsVideoBtnVisible(false);
+    videoRef?.current?.play?.();
+  };
+
+  return (
+    <div>
+      <Banner
+        bannerData={bannerData}
+        link="/aboutUs"
+        curHeight="h-home-banner-img"
+      />
+      <div className="xs: px-4 sm :px-4 md:px-page-layout">
+        <ReadArticle />
+        <div className="xs:mt-2 md:mt-20 sm:mt-2">
+          {aboutUsList?.map((item) => (
+            <ArticleListCard
+              currentData={{ ...item, placement: 'left' }}
+              key={item?.contentTitle}
+              link="/aboutUs"
+            />
+          ))}
+        </div>
+      </div>
+      <div className="relative w-full mt-[3.875rem]">
+        <video
+          src="https://gw.alipayobjects.com/mdn/rms_a9745b/afts/file/A*TnPbQarSmPcAAAAAAAAAAAAAARQnAQ"
+          controls
+          preload="auto"
+          ref={videoRef}
+        />
+        {isVideoBtnVisible && (
+          <>
+            <img
+              src="https://gw.alipayobjects.com/mdn/rms_a9745b/afts/img/A*nEH4RLzTzI8AAAAAAAAAAAAAARQnAQ"
+              alt=""
+              className="absolute left-0 top-0 w-full"
+            />
+            <img
+              src="https://gw.alipayobjects.com/mdn/rms_a9745b/afts/img/A*dIT7R4mqZbUAAAAAAAAAAAAAARQnAQ"
+              alt=""
+              className="absolute left-video-btn-left top-video-btn-top w-video-btn-width hover:cursor-pointer"
+              onClick={handlePlayVideo}
+            />
+            <img
+              src="https://gw.alipayobjects.com/mdn/rms_a9745b/afts/img/A*SIEFT7Sl8FsAAAAAAAAAAAAAARQnAQ"
+              alt=""
+              className="absolute left-video-icon-left top-video-icon-top w-video-icon-width hover:cursor-pointer"
+              onClick={handlePlayVideo}
+            />
+          </>
+        )}
+      </div>
+      <div className="xs: px-4 sm :px-4 md:px-page-layout mt-[5.875rem]">
+        <TextLayout title={productData?.title} content={productData?.content} />
+        <div className="mt-14 mb-[4.625rem]">
+          <ProductCard productData={productData} />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Home;

@@ -7,9 +7,9 @@
   "cpu": [
     "x64"
   ],
-  "main": "node-webp.darwin-x64.node",
+  "main": "node-image-webp.darwin-x64.node",
   "files": [
-    "node-webp.darwin-x64.node"
+    "node-image-webp.darwin-x64.node"
   ],
   "license": "MIT",
   "engines": {

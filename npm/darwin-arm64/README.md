@@ -1,3 +1,3 @@
 # `node-image-webp-darwin-arm64`
 
-This is the **aarch64-apple-darwin** binary for `node-webp`
+This is the **aarch64-apple-darwin** binary for `node-image-webp`

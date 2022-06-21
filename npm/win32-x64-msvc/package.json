@@ -7,9 +7,9 @@
   "cpu": [
     "x64"
   ],
-  "main": "node-webp.win32-x64-msvc.node",
+  "main": "node-image-webp.win32-x64-msvc.node",
   "files": [
-    "node-webp.win32-x64-msvc.node"
+    "node-image-webp.win32-x64-msvc.node"
   ],
   "license": "MIT",
   "engines": {

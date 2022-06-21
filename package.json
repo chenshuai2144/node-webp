@@ -4,14 +4,14 @@
   "main": "index.js",
   "types": "index.d.ts",
   "napi": {
-    "name": "node-webp",
+    "name": "node-image-webp",
     "triples": {
       "additional": [
         "aarch64-apple-darwin"
       ]
     }
   },
-  "repository": "https://github.com/chenshuai2144/node-webp",
+  "repository": "https://github.com/chenshuai2144/node-image-webp",
   "files": [
     "index.js",
     "index.d.ts"

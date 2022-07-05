@@ -10,7 +10,7 @@ const imageList = nodeImagePng.findAllUrl(fileName);
 nodeImagePng.webImageToWebp(url, distPath);
 
 // 本地图片并转转化为 webp
-nodeImagePng.This(srcPath, distPath);
+nodeImagePng.imageToWebp(srcPath, distPath);
 
 // 将 distPath 上传到cdn
 const { url, ...reset } = await zipAndUpload(item.distPath, false);
